@@ -1,7 +1,0 @@
-This is a temporary file.
-
-#####
-Begin
-#####
-
-std::cout - prints given input.
