@@ -3236,7 +3236,7 @@ connecting to).
     $ sudo ./bin/config set phpmailer.smtp-password thepassword
 
 That's it! Now Phabricator can send email. (Test by going to your Profile
-and Manage, and then click :guilabel:`Send Welcome Email`.
+and Manage, and then click :guilabel:`Send Welcome Email`).
 
 Generate Documentation
 ----------------------------------

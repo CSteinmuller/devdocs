@@ -12,12 +12,16 @@ This repository uses Sphinx. For more information on Sphinx, see
 If you're on a UNIX system and have Sphinx installed, you can simply run
 `make html` in the root of this repository to build the HTML version.
 
+## Contributions
+
+We do NOT accept pull requests through GitHub.
+
+If you would like to contribute code, please read
+
+our [Contribution Guide](https://phab.qub3d.org/w/contributing).
+
 ## License
 
-The MousePaw Media Development Documentation is made available via the
-Creative Commons Attribution-ShareAlike ([CC BY-SA 4.0][2]) license.
+This project is licensed under the BSD-3 License. (See LICENSE.md)
 
-The project is owned and maintained by [MousePaw Media][1].
-
-[1]: https://www.mousepawmedia.com/developers
-[2]: https://creativecommons.org/licenses/by-sa/4.0/
+It is owned and maintained by [Qub3d Engine Group](https://qub3d.org)
