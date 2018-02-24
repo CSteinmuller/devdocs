@@ -1,8 +1,8 @@
 Server Configuration
-##############################################
+############################
 
 Introduction
-=======================================
+==============================
 
 We've documented most details relating to how we built our server. This
 serves (a) as a reference for ongoing maintainance, (b) a training
@@ -22,7 +22,7 @@ guide is based in part on the Server Configuration documentation by
 `MousePaw Media <https://mousepawmedia.com>`_.
 
 Initial Setup
-==============================================
+==============================
 
 We are using a Linode 2048 with an Ubuntu 16.04 disk instance deployed
 from the ``Rebuild`` pane on the Linode dashboard.
@@ -122,7 +122,7 @@ It will take a few minutes for Longview to start working, so just close the
 window on the Linode Manager.
 
 Setup LAMP
-==========================
+==============================
 
 Apache2
 --------------------------
@@ -249,7 +249,7 @@ Finally, restart Apache2 to start using the changes.
 `SOURCE: Install LAMP on Ubuntu 16.04 (Linode) <https://www.linode.com/docs/web-servers/lamp/install-lamp-on-ubuntu-16-04/>`_
 
 Server Hardening
-======================
+==============================
 
 Firewall
 -------------------------
@@ -741,7 +741,7 @@ To scan for vulnerabilites with Tiger, run...
     $ sudo less /var/log/tiger/security.report.*
 
 Let's Encrypt Certificates
-===============================================
+==============================
 
 We'll install the Let's Encrypt Certbox, and then create our server
 certificates. While we can *technically* install the ``letsencrypt``
@@ -1651,7 +1651,7 @@ from the options.
 `SOURCE: Email with Postfix, Dovecot, and MySQL (Linode) <https://www.linode.com/docs/email/postfix/email-with-postfix-dovecot-and-mysql>`_
 
 Mail Server Security (DKIM, SPF, and Postfix)
-================================================
+==============================================
 
 Setup
 ---------------------------
@@ -1974,7 +1974,7 @@ each domain's DNS. The Name is ``_adsp._domainkey``, and the Value is
 `SOURCE: Configure SPF and DKIM in Postfix on Debian 8 <https://www.linode.com/docs/email/postfix/configure-spf-and-dkim-in-postfix-on-debian-8>`_
 
 Mail Filtering
-=======================================
+==============================
 
 Setup
 ------------------------
@@ -2384,7 +2384,7 @@ If that works, all is humming along as it should!
 `SOURCE: Blacklist and Whitelist with Postfix (linuxlasse.net) <http://linuxlasse.net/linux/howtos/Blacklist_and_Whitelist_with_Postfix>`_
 
 Mail Clients
-==========================
+==============================
 
 We'll be installing the web client Rainloop.
 
