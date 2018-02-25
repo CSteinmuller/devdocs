@@ -17,7 +17,6 @@ If you're on a UNIX system and have Sphinx installed, you can simply run
 We do NOT accept pull requests through GitHub.
 
 If you would like to contribute code, please read
-
 our [Contribution Guide](https://phab.qub3d.org/w/contributing).
 
 ## License

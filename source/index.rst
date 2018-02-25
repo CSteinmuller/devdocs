@@ -6,10 +6,12 @@
 Qub3d Engine Group: Development Documentation
 #####################################################
 
+
 About the Development Docs
 ==============================
-This document is meant to describe our group's standards, policies,
-technical workflow, and so forth.
+This repository is meant to describe our group's standards, policies,
+technical workflow, and so forth. For more information, see README.md.
+
 
 Table of Contents
 ==============================
@@ -21,11 +23,13 @@ Table of Contents
     howto/doc-howto
     serverconfig/config
 
+
 Indices and Tables
 ==============================
 
 * :ref:`genindex`
 * :ref:`search`
+
 
 Feedback
 ==============================
