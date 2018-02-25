@@ -11,14 +11,14 @@ This repository uses Sphinx. For more information on Sphinx, see
 
 If you're on a UNIX system and have Sphinx installed, you can simply run
 `make` in the root of this repository, pick the format you want from
-make's output, and run.
+make's output, and run it.
 
 ## Contributions
 
 We do NOT accept pull requests through GitHub.
 
 If you would like to contribute code, please read
-our [Contribution Guide](https://phab.qub3d.org/w/contributing).
+our Contributors' Guide.
 
 ## License
 

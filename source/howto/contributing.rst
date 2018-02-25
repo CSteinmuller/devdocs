@@ -106,7 +106,7 @@ First, you are introduced to the developer-base:
 - NewbProgrammer101 (Jalus Bilieyich/Jay): Lead DevOp.
 - CodeMouse92 (Jason C. McDonald): Lead Supervisor.
 
-Their workflows differ, and it helps them. If you want an
+Each developer's workflow differs from another. If you want an
 improved workflow, see below for examples.
 
 
@@ -132,7 +132,7 @@ Jason's Workflow
 Rules
 ==============================
 
-Below are the rules you must abide when contributing
+Below are the rules you must abide by when contributing
 to the project.
 
 
@@ -158,7 +158,7 @@ itself may be dropped, and only bugfixes and/or optimizations landed instead.]
 
 (6) Be Valgrind pure (no memory leaks detected).
 
-(7) Comply with Coding standards.
+(7) Comply with Coding Standards.
 
 (8) Be free of linter errors. ($ arc lint --lintall)
 
@@ -178,7 +178,10 @@ itself may be dropped, and only bugfixes and/or optimizations landed instead.]
 (15) Have all reviewer comments processed and marked "Done".
 
 
-If you are unfamiliar with CSI, see the CSI Howto.
+If you are unfamiliar with CSI, see the Commenting Showing Intent Howto.
+
+For more information on our Coding Standards, see the C++ Coding Standards Howto and
+the Lua Coding Standards Howto.
 
 You must also abide by the C++ and Lua code standards provided by the Qub3d Engine Group.
 

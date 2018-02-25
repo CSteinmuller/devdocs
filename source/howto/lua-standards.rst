@@ -1,5 +1,5 @@
-Lua Coding Standards
-############################
+Lua Coding Standards Howto
+##################################
 
 25 Febuary 2018, 16:50 GMT
 
