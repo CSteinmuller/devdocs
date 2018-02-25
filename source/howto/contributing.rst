@@ -120,7 +120,8 @@ Jay's Workflow
 He follows the `Pomodoro Method <`https://en.wikipedia.org/wiki/Pomodoro_Method>`_
 as his default way of working on the Qub3d project.
 
-He uses GNU Emacs with org-mode as his IDE.
+He uses GNU Emacs as his IDE. To see how he orders his system,
+take a look at his `UNIX dotfiles <`https://github.com/NewbProgrammer101/dotfiles>`_.
 
 His overall workflow is very conservative.
 
@@ -177,6 +178,15 @@ itself may be dropped, and only bugfixes and/or optimizations landed instead.]
 
 (15) Have all reviewer comments processed and marked "Done".
 
+(16) For bug fixes, please show a way of demonstrating that the
+diff actually fixes something.
+
+(17) If the contributor doesn't run the Goldilocks
+testsuite on the patch, then the maintainer will.
+
+(18) If the diff fixes a bug reported in Ponder, a brief reference
+to that bug must be included in the Summary.
+
 
 If you are unfamiliar with CSI, see the Commenting Showing Intent Howto.
 
@@ -190,6 +200,25 @@ Rules For Submitting Documentation
 -----------------------------------
 
 See the Documentation Howto.
+
+
+Miscellaneous
+==============================
+
+If you don't feel like hacking and/or documenting the Qub3d
+engine/launcher, there's still plenty of other ways for you to help!
+You can answer questions on the Discord Server, find bugs, promote
+Qub3d, contribute to the Qub3d official website, submit ideas in the
+`Ideas Board <`https://phab.qub3d.org/w/ideas>`_, or give end-user
+feedback.
+
+
+Copyright Assignment
+---------------------
+
+Before submitting contributions, the Qub3d Engine Group will need
+verification that you have complied with the BSD-3
+license and the Copyright Burden from LICENSE.md.
 
 
 Conclusion
