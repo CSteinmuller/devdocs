@@ -1028,7 +1028,7 @@ This time, select the following options:
 - Internet Site
 - ``qub3d.org``
 - ``webster``
-- ``$myhostname, localhost, ubuntu.members.linode.com, qub3d, qub3d.org
+- ``$myhostname, localhost, ubuntu.members.linode.com, qub3d, qub3d.org``
 - Force Synchronous Updates? **No**
 - (Default)
 - ``0``
@@ -2607,7 +2607,7 @@ We'll add a group to control who can access Phabricator's stuff. For ease of
 use, we'll add our login users to this group. We will also create a new user
 called ``phabdaemon`` for Phabricator-based daemons.
 
-..  code-blocks:: bash
+..  code-block:: bash
 
     $ sudo groupadd phab
     $ sudo useradd -G phab phabdaemon
@@ -2772,7 +2772,7 @@ installation! Create the base administrative account, and then dive in.
 Set Logging Locations
 ------------------------------------------
 
-..  code-blocks:: bash
+..  code-block:: bash
 
     $ sudo mkdir -p /opt/log/phab
     $ sudo chown -R itdude:phab /opt/log/phab

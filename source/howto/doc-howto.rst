@@ -1,7 +1,7 @@
-Introduction
-####################
+Documentation Howto
+###########################
 
-12 Febuary 2018, 18:32 GMT
+24 Febuary 2018, 18:32 GMT
 
 This file is targeted at people who want
 to document the project but don't know what
@@ -47,7 +47,8 @@ file.
 Note that the source/ directory isn't seen here. That is because,
 to Sphinx, everything inside the source/ directory is considered;
 whereas, Sphinx is blind to everything else outside the source/
-directory other than make-related files such as Makefile.
+directory other than make-related files such as Makefile. The order
+of files in the Table of Contents must be alphabetical.
 
 
 Format Standards
@@ -71,9 +72,11 @@ Title: The format is:
 
 Capitalize the major words of the title/section
 and the pounds "#" should always be the amount
-of columns the title has, plus eight. The date
-also appears only once in the file and appears
-below the first title.
+of columns the title has, plus eight. The title
+must appear only once in the file, and it must
+appear at the very top. The date also appears
+only once in the file and appears below
+the first title.
 
 Subsection: Every subsection must look like this:
 
@@ -112,7 +115,7 @@ from each other by two spaces.
 
 Links: Links should only be shown as hyperlinks, *never* as
 raw links. As an example, https://qub3d.org needs to be given
-the name "Qub3d." A way to do this is demonstrated in the following:
+the name, "Qub3d." A way to do this is demonstrated in the following:
 
 ..  code-block:: rst
 
@@ -159,18 +162,20 @@ Date: See RST Format's Date section.
 
 Description: The amount of columns are limited to 60. If you're
 starting a new subject within the same section, you must have a
-space between the two subjects.
+space between the two subjects. When doing bullet/list points,
+you must insert a plain text description between the title and
+the list/bullet points.
 
 Links: Never put in raw links. Instead, give these links a name.
 For example, the file shouldn't display https://qub3d.org by itself.
-Instead it should be given the name, Qub3d. This is demonstrated in
+Instead it should be given the name, "Qub3d." This is demonstrated in
 the following:
 
 ..  code-block:: markdown
 
     https://qub3d.org
 
-This is incorrect. What should be done is:
+This is incorrect. What should've been done is:
 
 ..  code-block:: markdown
 
@@ -183,7 +188,7 @@ Miscellaneous
 ==============================
 
 For more information on RST formatting, check
-`RST http://www.sphinx-doc.org/en/stable/rest.html`_.
+`RST <`http://www.sphinx-doc.org/en/stable/rest.html>`_.
 
 NOTE: This file is *not* a tutorial on RST and MD, rather, it is a
 tutorial on RST and MD standards used by the Qub3d Engine Group.
