@@ -23,12 +23,39 @@ Preliminary Keywords:
 - Launch: Synnonymous with Pull Request.
 
 
-Arcanist and Git
+Getting Started
 ==============================
+
+This section displays the guidelines for making a development
+environment for the Qub3d project.
+
+
+Development Environment
+------------------------
+
+For more expansion on this subsection, see section,
+Development Workflow.
+
+- Install `Cinder <`https://libcinder.org>`_ and `Goldilocks <https://goldilocks.org>`_. GOLDILOCKS.COM IS A DUMMY WEBSITE. DON'T RISK VISITING.
+
+Cinder is the library that the Qub3d Engine requires
+in order to work.
+
+Goldilocks is the testing suite required by the
+Qub3d Engine Group that is developed by MousepawMedia.
+
+Installation of Cinder: download the archive and extract it.
+Then, `cd` to the directory and run `cmake -DCINDER_BOOST_USE_SYSTEM=1`
+
+Installation of Goldilocks: To be filled in later.
+
+
+Arcanist and Git
+-----------------
 
 `Arcanist <`https://secure.phabricator.com/book/phabricator/article/arcanist/>`_.
 
-`Git <`https://git-scm.com>`_.
+`Git <`https://git-scm.com/docs>`_.
 
 Check out one of our repositories via Diffusion on Phabricator.
 (You'll want to set up either a VCS Password or SSH Public
@@ -190,10 +217,20 @@ to that bug must be included in the Summary.
 
 If you are unfamiliar with CSI, see the Commenting Showing Intent Howto.
 
+You must also abide by the C++ and Lua code standards provided by the Qub3d Engine Group.
 For more information on our Coding Standards, see the C++ Coding Standards Howto and
 the Lua Coding Standards Howto.
 
-You must also abide by the C++ and Lua code standards provided by the Qub3d Engine Group.
+Before pushing any significant diff, please double check to see
+if there is an issue that describes your intention, the issue
+has been approved, and was not assigned to anyone else. However,
+if there is no such issue, create a new one in `Ponder <`https://phab.qub3d.org/ponder>`_.
+If there is an issue that wasn't assigned to anyone, simply leave a
+comment behind stating that you wish to work on it, and a Trusted Member
+will assign it to you.
+
+If you're submitting a bug fix, documentation change, and/or other
+miniscule changes, there is no need to create an issue. Just launch the diff.
 
 
 Rules For Submitting Documentation
@@ -207,7 +244,8 @@ Miscellaneous
 
 If you don't feel like hacking and/or documenting the Qub3d
 engine/launcher, there's still plenty of other ways for you to help!
-You can answer questions on the Discord Server, find bugs, promote
+You can answer questions on the Discord Server and/or
+`Ponder <`https://phab.qub3d.org/ponder>`_, find bugs, promote
 Qub3d, contribute to the Qub3d official website, submit ideas in the
 `Ideas Board <`https://phab.qub3d.org/w/ideas>`_, or give end-user
 feedback.
