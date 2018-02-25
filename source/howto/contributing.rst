@@ -3,6 +3,10 @@ Contributors' Guide
 
 25 Febuary 2018, 05:27 GMT
 
+This file is dedicated to people who want to
+contribute to the project but don't know what
+Qub3d Engine Group's guidelines are.
+
 You want to contribute to the project? Awesome!
 Here, you will find out how to get started.
 
@@ -43,7 +47,7 @@ Make your changes, and then send them up:
 
 Your code will appear as a new Revision on Differential.
 It will need to be reviewed and approved by a Trusted member.
-If they request changes, do the following:
+If they request changes, do the following after making changes:
 
 ..  code-block:: bash
 

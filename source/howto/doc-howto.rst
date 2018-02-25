@@ -17,7 +17,7 @@ include the following:
 Introduction: Succinct description about
 what the file is dedicated to.
 
-Date: Include the date it was created after
+Date: Insert the date it was created below
 the Introduction title.
 
 Description: Long description about the subject;
@@ -103,7 +103,7 @@ and the amount of dashes is entirely due to the writer's
 preferences as long as it is longer than the sub-subsection's
 title text.
 
-Date: Formatted as: dd mm yyyy, hh:mm GMT
+Date: Formatted as: dd month yyyy, hh:mm GMT
 
 Description: The description's amount of columns can
 be unlimited; however, one line *must* never consist
@@ -158,7 +158,7 @@ Where the subsection always comes after the Title, and all major
 words are capitalized. Subsections also must be consistent with
 two pounds "##" before the subsection title.
 
-Date: See RST Format's Date section.
+Date: You don't need to include the date for Markdown files.
 
 Description: The amount of columns are limited to 60. If you're
 starting a new subject within the same section, you must have a
@@ -166,7 +166,7 @@ space between the two subjects. When doing bullet/list points,
 you must insert a plain text description between the title and
 the list/bullet points.
 
-Links: Never put in raw links. Instead, give these links a name.
+Links: Never insert raw links. Instead, give these links a name.
 For example, the file shouldn't display https://qub3d.org by itself.
 Instead it should be given the name, "Qub3d." This is demonstrated in
 the following:
@@ -190,5 +190,5 @@ Miscellaneous
 For more information on RST formatting, check
 `RST <`http://www.sphinx-doc.org/en/stable/rest.html>`_.
 
-NOTE: This file is *not* a tutorial on RST and MD, rather, it is a
-tutorial on RST and MD standards used by the Qub3d Engine Group.
+NOTE: This file is *not* a tutorial on RST and Markdown, rather,
+it is a tutorial on RST and MD standards used by the Qub3d Engine Group.

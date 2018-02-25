@@ -10,7 +10,8 @@ This repository uses Sphinx. For more information on Sphinx, see
 [sphinx-doc.org](https://sphinx-doc.org).
 
 If you're on a UNIX system and have Sphinx installed, you can simply run
-`make html` in the root of this repository to build the HTML version.
+`make` in the root of this repository, pick the format you want from
+make's output, and run.
 
 ## Contributions
 
