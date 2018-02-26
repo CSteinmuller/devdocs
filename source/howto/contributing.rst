@@ -85,6 +85,26 @@ If they request changes, do the following after making changes:
 Then, the current diff will get updated to address the change
 requests.
 
+Git commit messages must be:
+
+- Descriptive. (No "Update init.lua" or "Fix a problem.") You must tell
+the maintainers *why* you're making this commit in the message.
+
+- Capitalized. All subjects must be capitalized. i.e. "Fix all Bugs with Goldilocks implemented."
+
+- Free of spelling errors.
+
+- In present tense. No "-ed" suffixes.
+
+- Professional. No slang words, no incorporating personal opinions, and
+no grammatical errors. Professional acronyms such as "AFAIK" are allowed.
+
+Git commit bodies are also useful if you're submitting a fundamental launch.
+The commit bodies' rules are the same as the commit messages but with one
+extra rule:
+
+- Limit the characters to 60.
+
 
 Contributor Requirements
 ==============================
@@ -214,6 +234,8 @@ testsuite on the patch, then the maintainer will.
 (18) If the diff fixes a bug reported in Ponder, a brief reference
 to that bug must be included in the Summary.
 
+(19) Travis CI must pass the tests properly.
+
 
 If you are unfamiliar with CSI, see the Commenting Showing Intent Howto.
 
@@ -231,6 +253,10 @@ will assign it to you.
 
 If you're submitting a bug fix, documentation change, and/or other
 miniscule changes, there is no need to create an issue. Just launch the diff.
+
+If Travis CI fails to pass the test properly, please find out why.
+The Qub3d Engine Group will not let failed tests pass through the gates to
+landing for any reason.
 
 
 Rules For Submitting Documentation
@@ -259,8 +285,27 @@ verification that you have complied with the BSD-3
 license and the Copyright Burden from LICENSE.md.
 
 
+Post-Launch
+==============================
+
+You have launched your first diff, congratulations!
+
+
+Now What?
+----------
+
+You wait for the diff to get reviewed. Once it is reviewed, you wait
+for approval from the maintainers.
+
+
+Troubleshooting
+----------------
+
+
+
+
 Conclusion
 ==============================
 
-While this may seem like a lot to abide by, it is beneficial to both
-you and the project. It also gets easier the more you contribute.
+While this may seem like a lot to abide by, it is beneficial for both
+you and the Qub3d project. It also gets easier the more you contribute.
