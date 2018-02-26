@@ -187,6 +187,13 @@ This displays "Qub3d" as a hyperlink to qub3d.org.
 Miscellaneous
 ==============================
 
+
+Localization
+-------------
+
+The documentation is written with the UTF-8 localization format.
+Please use this locale if you can.
+
 For more information on RST formatting, check
 `RST <`http://www.sphinx-doc.org/en/stable/rest.html>`_.
 

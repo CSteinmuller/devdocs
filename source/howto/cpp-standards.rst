@@ -18,3 +18,12 @@ Format Standards
 This section consists of C++ format standards
 that you must comply with in order to
 contribute code to the Qub3d engine/launcher.
+
+
+Localization
+-------------
+
+We use the ASCII localization standard for
+writing C++. If you use UTF-8, then you're excused
+unless you insert a character that is unsupported
+by ASCII.
