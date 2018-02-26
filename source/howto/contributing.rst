@@ -125,17 +125,20 @@ Code
 -----
 
 To contribute to the engine/launcher, you must have fair
-knowledge of the following languages: C++ and/or Lua, and/or JSON.
+knowledge of at least *one* of the following languages: 
+
+C++, Lua, and JSON.
+
 As they are the languages used in the engine/launcher.
 
 
 Documentation
 --------------
 
-If you're just contributing to documentation, you must have the
+If you're just contributing to documentation, you should have the
 following characteristics:
 
-- Fair English
+- Professional Working Proficiency (ILR Level 3) or better with English
 
 - Knowledge of RST and its syntax
 

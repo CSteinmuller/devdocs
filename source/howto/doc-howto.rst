@@ -126,7 +126,7 @@ like this:
 
 ..  code-block:: rst
 
-    `Qub3d https://qub3d.org`_
+    `Qub3d <`https://qub3d.org>`_
 
 This shows "Qub3d" as a hyperlink for qub3d.org.
 
