@@ -63,12 +63,13 @@ of popularity.
 
 Q 3: How is "Qub3d" pronounced?
 A 3: It has the exact same pronounciation as "cubed" with a hard
-"c" and the English standard for the suffix "ed." The three in
+"c" and the English standard for the suffix "ed." To put this in
+other 'words,' it is pronounced as "k-you-bd." The three in
 "Qub3d" is pronounced "cubed" as well.
 
 Q 4: Where do I report bugs?
 A 4: You can report bugs/issues at `Ponder <`https://phab.qub3d.org/ponder>`_
-after registering an account. Also, please use the Issue template
+after registering an account. Also, please use the Issue Template
 when submitting bug reports.
 
 Q 5: Where can I find more information about Qub3d?

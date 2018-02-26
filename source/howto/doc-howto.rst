@@ -131,8 +131,8 @@ like this:
 This shows "Qub3d" as a hyperlink for qub3d.org.
 
 
-MD Format
-----------
+Markdown Format
+----------------
 
 It is rare to write .md files other than the README
 and the LICENSE. However, there can be a time where a .md file

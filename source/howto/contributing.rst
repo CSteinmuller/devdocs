@@ -45,7 +45,8 @@ Goldilocks is the testing suite required by the
 Qub3d Engine Group that is developed by MousepawMedia.
 
 Installation of Cinder: download the archive and extract it.
-Then, `cd` to the directory and run `cmake -DCINDER_BOOST_USE_SYSTEM=1`
+Then, `cd` to the directory and run `cmake . -DCINDER_BOOST_USE_SYSTEM=1`
+Once that's done, run `make -j<number of enabled threads>` to build.
 
 Installation of Goldilocks: To be filled in later.
 
@@ -80,7 +81,7 @@ If they request changes, do the following after making changes:
 
     $ git add .
     $ git commit -m "<Insert Problem Address>"
-    $ arc diff --update <Insert Current Differential>
+    $ arc diff
 
 Then, the current diff will get updated to address the change
 requests.
@@ -88,7 +89,9 @@ requests.
 Git commit messages must be:
 
 - Descriptive. (No "Update init.lua" or "Fix a problem.") You must tell
-the maintainers *why* you're making this commit in the message.
+  the maintainers *why* you're making this commit in the message.
+
+- Concise. The hard limit of characters to be on the subject line is 50.
 
 - Capitalized. All subjects must be capitalized. i.e. "Fix all Bugs with Goldilocks implemented."
 
@@ -97,13 +100,18 @@ the maintainers *why* you're making this commit in the message.
 - In present tense. No "-ed" suffixes.
 
 - Professional. No slang words, no incorporating personal opinions, and
-no grammatical errors. Professional acronyms such as "AFAIK" are allowed.
+  no grammatical errors. Professional acronyms such as "AFAIK" are allowed.
+
+- Free of useless punctuation. No periods at the end of the subject line,
+  for space is precious if you're trying to keep below 50 characters.
 
 Git commit bodies are also useful if you're submitting a fundamental launch.
-The commit bodies' rules are the same as the commit messages but with one
-extra rule:
+The commit bodies' rules are the same as the commit messages but with two
+more mandatory rules:
 
-- Limit the characters to 60.
+- Limit the amount of characters to 72.
+
+- Tell the maintainer how your patch works in an efficiently descriptive manner.
 
 
 Contributor Requirements
@@ -116,15 +124,8 @@ to the project.
 Code
 -----
 
-To contribute to the engine/launcher, you must have excellent
-knowledge of the following:
-
-- C++
-
-- Lua
-
-- JSON
-
+To contribute to the engine/launcher, you must have fair
+knowledge of the following languages: C++ and/or Lua, and/or JSON.
 As they are the languages used in the engine/launcher.
 
 
@@ -134,14 +135,15 @@ Documentation
 If you're just contributing to documentation, you must have the
 following characteristics:
 
-- Excellent English
+- Fair English
 
-- Knowledge of RST
+- Knowledge of RST and its syntax
 
-- Knowledge of Markdown (Only if you're writing Markdown in the
+- Knowledge of Markdown (Only applicable if you're writing Markdown in the
   documentation)
 
-The above points are mandatory.
+NOTE: Having fair knowledge of English is mandatory if
+you want to make clear documentation.
 
 
 Development Workflow
@@ -164,11 +166,11 @@ Tre's Workflow
 Jay's Workflow
 ---------------
 
-He follows the `Pomodoro Method <`https://en.wikipedia.org/wiki/Pomodoro_Method>`_
+He uses the `Pomodoro Method <`https://en.wikipedia.org/wiki/Pomodoro_Method>`_
 as his default way of working on the Qub3d project.
 
-He uses GNU Emacs as his IDE. To see how he orders his system,
-take a look at his `UNIX dotfiles <`https://github.com/NewbProgrammer101/dotfiles>`_.
+He uses GNU Emacs as his IDE. If you want to see how he organizes
+his system, take a look at his `UNIX dotfiles <`https://github.com/NewbProgrammer101/dotfiles>`_.
 
 His overall workflow is very conservative.
 
@@ -188,7 +190,6 @@ Rules For Submitting Code
 --------------------------
 
 Every Launch must have the reviewers: NewbProgrammer101 and TMcSquared.
-Every launch must also have the following subscriber: CodeMouse92.
 
 There are preliminary checks you must do on your branch before launching.
 They are:
@@ -234,7 +235,7 @@ testsuite on the patch, then the maintainer will.
 (18) If the diff fixes a bug reported in Ponder, a brief reference
 to that bug must be included in the Summary.
 
-(19) Travis CI must pass the tests properly.
+(19) Our CI, Jenkins, must pass the tests properly.
 
 
 If you are unfamiliar with CSI, see the Commenting Showing Intent Howto.
@@ -254,7 +255,7 @@ will assign it to you.
 If you're submitting a bug fix, documentation change, and/or other
 miniscule changes, there is no need to create an issue. Just launch the diff.
 
-If Travis CI fails to pass the test properly, please find out why.
+If Jenkins fails to pass the test properly, please find out why.
 The Qub3d Engine Group will not let failed tests pass through the gates to
 landing for any reason.
 
@@ -273,16 +274,15 @@ engine/launcher, there's still plenty of other ways for you to help!
 You can answer questions on the Discord Server and/or
 `Ponder <`https://phab.qub3d.org/ponder>`_, find bugs, promote
 Qub3d, contribute to the Qub3d official website, submit ideas in the
-`Ideas Board <`https://phab.qub3d.org/w/ideas>`_, or give end-user
-feedback.
+`Ideas Board <`https://phab.qub3d.org/w/ideas>`_, help review a
+diff, or give end-user feedback.
 
 
 Copyright Assignment
 ---------------------
 
 Before submitting contributions, the Qub3d Engine Group will need
-verification that you have complied with the BSD-3
-license and the Copyright Burden from LICENSE.md.
+verification that you have signed the `ToD <`https://phab.qub3d.org/L2>`_.
 
 
 Post-Launch

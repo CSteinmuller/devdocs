@@ -5,8 +5,8 @@ C++ Coding Standards Howto
 
 This file is dedicated to the official
 standards for C++ code formatting provided
-by the Qub3d Engine Group and is compliant
-with compiler standards.
+by the Qub3d Engine Group that is also compliant
+with ISO and compiler standards.
 
 The current standard for C++ in use by
 the Qub3d Engine Group is C++14.
