@@ -5,11 +5,11 @@ Introduction
 ==============================
 
 We've documented most details relating to how we built our server. This
-serves (a) as a reference for ongoing maintainance, (b) a training
+serves (a) as a reference for ongoing maintenance, (b) a training
 resource for anyone wanting to learn more about LAMP servers, and (c) a
 way for others to provide feedback on our server architectures.
 
-..  NOTE:: Of course, these guides are provided without warrenty.
+..  NOTE:: Of course, these guides are provided without warranty.
 
 If you find errors, omissions, typos, or other problems, or otherwise want
 to make a suggestion, please file a bug report on Phabricator.
@@ -40,11 +40,11 @@ We'll start by defining the name of our host.
 
 ..  code-block:: bash
 
-    $ echo "delavega" > /etc/hostname
+    $ echo "qub3d" > /etc/hostname
     $ hostname -F /etc/hostname
     $ vim /etc/hosts
 
-In that file, add ``delavega`` to the end of the second line.
+In that file, add ``qub3d`` to the end of the second line.
 
 Save and quit.
 
@@ -134,7 +134,7 @@ We'll start by setting up Apache2.
     $ sudo apt install apache2
 
 Next, we'll edit the configuration file to turn off ``KeepAlive``, as that
-uses up extra memoery (and we don't have that much to spare).
+uses up extra memory (and we don't have that much to spare).
 
 ..  code-block:: apache
 
@@ -2793,6 +2793,7 @@ Run the following commands...
     $ sudo /opt/phab/phabricator/bin/config set phabricator.base-uri 'https://phab.qub3d.org/'
     $ sudo apt install php7.2-apcu python-pygments python3-pygments imagemagick subversion
     $ sudo /opt/phab/phabricator/bin/config set pygments.enabled true
+    $ sudo ln -s /usr/lib/git-core/git-http-backend /opt/phab/phabricator/support/bin/git-http-backend
 
 Now we need to edit several parameters in ``php.ini``.
 
@@ -3251,3 +3252,310 @@ It is useful to have the Phabricator documentation on hand.
 **WOO HOO!** Phabricator is set up! You can now proceed with the fun part...
 using the web interface to configure it to your heart's desire! Everything
 should *just work*. Par-tay time!
+
+Etherpad
+==================================
+
+Next, we'll set up Etherpad. First we install our dependencies.
+
+..  code-block:: bash
+
+    $ sudo apt install screen git curl python libssl-dev pkg-config build-essential
+
+Now we'll set up node.js to work on our server.
+
+..  code-block:: bash
+
+    $ cd /tmp
+    $ wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz
+    $ tar xJf node-v8.9.4-linux-x64.tar.xz
+    $ sudo mkdir /opt/nodejs
+    $ sudo chown itdude:www-data /opt/nodejs
+    $ mv node-v8.9.4-linux-x64/* /opt/nodejs
+    $ echo "PATH=$PATH:/opt/nodejs/bin" >> ~/.profile
+
+At this point, you'll need to reload your terminal session (quitting and
+re-joining SSH should be enough).
+
+Now we'll pull down etherpad-lite from the official repository.
+
+..  code-block:: bash
+
+    $ sudo mkdir /opt/etherpad
+    $ sudo chown itdude:www-data /opt/etherpad
+    $ cd /opt/etherpad
+    $ git clone git://github.com/ether/etherpad-lite.git
+
+Next, we need to set up the database for Etherpad. Be sure to replace
+``PASSWORD`` with a secure password for the etherpad mysql user.
+
+..  code-block:: bash
+
+    $ mysql -u root -p
+    create database `etherpad-lite`;
+    grant all privileges on `etherpad-lite`.* to 'etherpad'@'localhost' identified by 'PASSWORD';
+    exit
+
+Next, we need to edit the configuration...
+
+..  code-block:: bash
+
+    $ cd etherpad-lite
+    $ cp settings.json.template settings.json
+    $ vim /opt/etherpad/etherpad-lite/settings.json
+
+Comment out or remove the following section...
+
+..  code-block:: javascript
+
+    "dbType" : "dirty",
+      //the database specific settings
+      "dbSettings" : {
+                       "filename" : "var/dirty.db"
+                     },
+
+Edit the next section so it matches the following, where ``PASSWORD`` is the
+SQL password you specified earlier. Make sure you also are uncommenting this
+section!
+
+..  code-block:: javascript
+
+    /* An Example of MySQL Configuration */
+    "dbType" : "mysql",
+    "dbSettings" : {
+                    "user"    : "etherpad",
+                    "host"    : "localhost",
+                    "password": "PASSWORD",
+                    "database": "etherpad-lite",
+                    "charset" : "utf8mb4"
+                  },
+
+Also, look for the following section, and change the passwords. Again, make sure
+you are uncommenting this section!
+
+..  code-block:: javascript
+
+    /* Users for basic authentication. is_admin = true gives access to /admin.
+     If you do not uncomment this, /admin will not be available! */
+    "users": {
+    "admin": {
+      "password": "changeme1",
+      "is_admin": true
+    }
+    },
+
+For security reasons, let's **not** show the contents of this file in the
+admin panel.
+
+..  code-block:: javascript
+
+    // Option to hide/show the settings.json in admin page, default option is set to true
+    "showSettingsInAdminPage" : false,
+
+Finally, look for this section and change it to match the following, thereby
+pointing to our Let's Encrypt certificates.
+
+..  code-block:: javascript
+
+    /*
+    // Node native SSL support
+    // this is disabled by default
+    //
+    // make sure to have the minimum and correct file access permissions set
+    // so that the Etherpad server can access them
+    */
+
+    "ssl" : {
+            "key"  : "/etc/apache2/certs/privkey.pem",
+            "cert" : "/etc/apache2/certs/cert.pem",
+            "ca": ["/etc/apache2/certs/chain.pem"]
+          },
+
+We will need to add our ``itdude`` user to our ``certs`` group, since
+``itdude`` is what runs Etherpad, and it must be able to read the
+certificates for SSH to work.
+
+..  code-block:: bash
+
+    $ sudo usermod -a -G certs itdude
+
+After running that command, we may need to quit and start our terminal session
+again.
+
+Next, we'll let Etherpad set up its other dependencies.
+
+..  code-block:: bash
+
+    $ /opt/etherpad/etherpad-lite/bin/installDeps.sh
+
+Now we can run Etherpad for the first time.
+
+..  code-block:: bash
+
+    $ /opt/etherpad/etherpad-lite/bin/run.sh
+
+If all goes well and it starts, press :kbd:`Ctrl+C` to quit. Now we need
+to make some more changes to the database.
+
+..  code-block:: bash
+
+    $ mysql -u root -p
+    alter database `etherpad-lite` character set utf8 collate utf8_bin;
+    use `etherpad-lite`;
+    alter table `store` convert to character set utf8 collate utf8_bin;
+    exit
+
+With all that done, let's allow the Etherpad port through, and then
+start Etherpad again.
+
+..  code-block:: bash
+
+    $ sudo ufw allow 9001
+    $ /opt/etherpad/etherpad-lite/bin/run.sh
+
+Navigate to ``https://qub3d.org:9001`` to test that Etherpad is working.
+
+`SOURCE: Install Etherpad web-based real time collaborative editor on Ubuntu 16.04 Linux (LinuxConfig.org) <https://linuxconfig.org/install-etherpad-web-based-real-time-collaborative-editor-on-ubuntu-16-04-linux>`_
+
+`SOURCE: How to Install Etherpad For Production with Node.js and MySQL on a VPN (DigitalOcean) <https://www.digitalocean.com/community/tutorials/how-to-install-etherpad-for-production-with-node-js-and-mysql-on-a-vps>`_
+
+Automatically Starting Etherpad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next, we need to configure the server to automatically start Etherpad.
+
+..  code-block:: bash
+
+    $ sudo mkdir /opt/scripts/other
+    $ sudo chown itdude:www-data /opt/scripts/other
+    $ cd /opt/scripts/other
+    $ vim start_etherpad
+
+Set the contents of that file to the following...
+
+..  code-block:: bash
+
+    #!/usr/bin/env bash
+    screen -S "etherpad" -d -m /opt/etherpad/etherpad-lite/bin/run.sh
+
+Save and close, and then make it executable and add it to the user-level
+crontab.
+
+..  code-block:: bash
+
+    $ chmod +x start_etherpad
+    $ crontab -e
+
+Add the following to the bottom of your crontab, save, and close::
+
+    @reboot /opt/scripts/other/start_etherpad
+
+Let's go ahead and run that script to startup Etherpad.
+
+..  code-block:: bash
+
+    $ /opt/scripts/other/start_etherpad
+
+After a minute, check to make sure ``http://qub3d.org:9001`` is working,
+and then we're ready to go.
+
+Apache2 Proxy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's set up a proxy for Etherpad.
+
+..  code-block:: bash
+
+    $ sudo vim /etc/apache2/sites-available/pad.conf
+
+Set the contents of that file to the following...
+
+..  code-block:: apache
+
+    <IfModule mod_ssl.c>
+        <VirtualHost *:443>
+            ServerName pad.qub3d.org
+            ServerAdmin webmaster@qub3d.org
+
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+            SSLEngine on
+            SSLCertificateFile  /etc/apache2/certs/fullchain.pem
+            SSLCertificateKeyFile /etc/apache2/certs/privkey.pem
+            Include /etc/letsencrypt/options-ssl-apache.conf
+
+            <IfModule mod_proxy.c>
+                # the following allows "nice" urls such as https://etherpad.example.org/padname
+                # But, some users reported issues with this
+                RewriteEngine On
+                RewriteRule /p/*$ https://pad.qub3d.org/ [NC,L]
+                RewriteCond %{REQUEST_URI} !^/locales/
+                RewriteCond %{REQUEST_URI} !^/locales.json
+                RewriteCond %{REQUEST_URI} !^/admin
+                RewriteCond %{REQUEST_URI} !^/p/
+                RewriteCond %{REQUEST_URI} !^/static/
+                RewriteCond %{REQUEST_URI} !^/pluginfw/
+                RewriteCond %{REQUEST_URI} !^/javascripts/
+                RewriteCond %{REQUEST_URI} !^/socket.io/
+                RewriteCond %{REQUEST_URI} !^/ep/
+                RewriteCond %{REQUEST_URI} !^/minified/
+                RewriteCond %{REQUEST_URI} !^/api/
+                RewriteCond %{REQUEST_URI} !^/ro/
+                RewriteCond %{REQUEST_URI} !^/error/
+                RewriteCond %{REQUEST_URI} !^/jserror
+                RewriteCond %{REQUEST_URI} !^/redirect
+                RewriteCond %{REQUEST_URI} !^/favicon.ico
+                RewriteCond %{REQUEST_URI} !^/robots.txt
+                RewriteCond %{REQUEST_URI} !^/list/
+                RewriteCond %{REQUEST_URI} !^/public/
+                RewriteRule ^/p/(.+)$ https://pad.qub3d.org/p/$1 [L]
+
+                SSLProxyEngine On
+                SSLProxyVerify none
+                SSLProxyCheckPeerCN off
+                SSLProxyCheckPeerName off
+                SSLProxyCheckPeerExpire off
+
+                ProxyVia On
+                ProxyRequests Off
+                ProxyPass / https://qub3d.org:9001/
+                ProxyPassReverse / https://qub3d.org:9001/
+                ProxyPreserveHost on
+                <Proxy *>
+                    Options FollowSymLinks MultiViews
+                    AllowOverride All
+                    Order allow,deny
+                    allow from all
+                </Proxy>
+            </IfModule>
+        </VirtualHost>
+    </IfModule>
+
+Save and close, and then load it up.
+
+..  code-block:: bash
+
+    $ sudo a2ensite pad.conf
+    $ sudo a2enmod proxy
+    $ sudo a2enmod proxy_http
+    $ sudo systemctl restart apache2
+
+Go to ``https://pad.qub3d.org`` to check that the new site works.
+
+Adding Plugins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We can add various plugins to Etherpad. Simply go to
+``https:/pad.qub3d.org/admin`` and select ``Plugin Manager``.
+
+We are enabling the following plugins:
+
+* activepads
+* adminpads
+* authorship_toggle
+* autocomp
+* cursortrace
+* print
+* scrollto
+* wrap

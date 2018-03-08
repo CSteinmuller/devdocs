@@ -1,3 +1,56 @@
 {
-    "restructuredtext.workspaceRoot": "/home/jason/Code/Repositories/qub3d/qub3d_devdocs"
+    // Disable RST linter
+    "restructuredtext.linter.run": "off",
+    "restructuredtext.confPath": "${workspaceRoot}/source",
+    "restructuredtext.workspaceRoot": "{workspaceRoot}/qub3d_devdocs",
+    "restructuredtext.builtDocumentationPath": "${workspaceRoot}/build/html",
+
+    "cSpell.words": [
+        "linode",
+        "lish",
+        "longview",
+        "phpmyadmin",
+        "prefork",
+        "subdomain",
+        "subdomains",
+        "uncommenting",
+        "webmail"
+    ],
+
+    "cSpell.ignoreWords": [
+        "tmpfs",
+        "itdude"
+    ],
+
+    "cSpell.ignoreRegExpList": [
+        // Skip hex values
+        "0x[a-f0-9]+",
+        // Skip reference labels
+        "\\.\\. +_\\w+:",
+        // Skip :ref: directives
+        ":ref:`.+`",
+        // Skip bash commands
+        "    \\$.*",
+        // Skip C++ include directives
+        "#include .+",
+        // Skip :code: directives
+        ":code:`.+`",
+        // Skip :file: directives
+        ":file:`.+`",
+        // Skip code filenames
+        "`\\w+\\.(h|hpp|c|cpp|py|conf)`",
+        // Skip file extensions
+        "``\\*\\.\\w+``",
+        // Skip URLs
+        "http(s):\\/\\/(\\.\\-\\w\\/)+"
+    ],
+
+    "cSpell.ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode",
+        "typings",
+        "**/config.rst"
+    ],
 }
