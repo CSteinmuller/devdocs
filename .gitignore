@@ -1,2 +1,11 @@
 **/build/
-codealike.json
+*.txt
+*.html
+*.json
+*.tex
+*.pdf
+*.man
+*.texi
+*.info
+*.xml
+

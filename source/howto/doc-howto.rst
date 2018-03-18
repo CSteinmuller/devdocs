@@ -14,7 +14,7 @@ Writing a New File
 If creating a new documentation file, it must
 include the following:
 
-Introduction: Succinct description about
+Introduction: Concise description about
 what the file is dedicated to.
 
 Date: Insert the date it was created below
@@ -40,15 +40,16 @@ file.
 
 ..  code-block:: rst
 
-    howto/doc-howto
     howto/gettingstarted
+    howto/doc-howto
     serverconfig/config
 
 Note that the source/ directory isn't seen here. That is because,
 to Sphinx, everything inside the source/ directory is considered;
 whereas, Sphinx is blind to everything else outside the source/
 directory other than make-related files such as Makefile. The order
-of files in the Table of Contents must be alphabetical.
+of files in the Table of Contents are sorted by importance. The top, being
+the most important and bottom being the least important.
 
 
 Format Standards
@@ -91,7 +92,7 @@ only exception is if the subsection title is longer than
 30 columns. If this is the case, only amount an equal sign
 "=" to the amount of characters the title has, plus one.
 
-Sub-subsection: A sub-subsection looks like this:
+Sub-subsection: It looks like this:
 
 ..  code-block:: rst
 
@@ -103,11 +104,22 @@ and the amount of dashes is entirely due to the writer's
 preferences as long as it is longer than the sub-subsection's
 title text.
 
-Date: Formatted as: dd month yyyy, hh:mm GMT
+There's a sub-sub-subsection format. Its appearance in Qub³d docs look
+like this:
+
+..  code-block:: rst
+
+  Sub-sub-subsection
+  ^^^^^^^^^^^^^^^^^^^
+
+Where the `^` character amounts to the amount of characters
+in the title, plus one.
+
+Date: Formatted as `dd month yyyy, hh:mm GMT`
 
 Description: The description's amount of columns can
 be unlimited; however, one line *must* never consist
-of two lines (If you have text wrapping disabled, you
+of two lines (If you have text wrapping enabled, you
 can easily notice this situation).
 
 Syntax: Titles/subsections/sub-subsections must be separated
@@ -115,20 +127,23 @@ from each other by two spaces.
 
 Links: Links should only be shown as hyperlinks, *never* as
 raw links. As an example, https://qub3d.org needs to be given
-the name, "Qub3d." A way to do this is demonstrated in the following:
+the name, "Qub3d." An incorrect way of doing this is demonstrated
+in the following:
 
 ..  code-block:: rst
 
     https://qub3d.org
 
-This should never be shown by itself. Instead, it should be displayed
-like this:
+Instead, it should be displayed like this:
 
 ..  code-block:: rst
 
-    `Qub3d <`https://qub3d.org>`_
+    `Qub3d <https://qub3d.org>`_
 
 This shows "Qub3d" as a hyperlink for qub3d.org.
+
+NOTE: Links **must** have :code:`https://` instead of :code:`http://`. The only
+exception is that if the URL doesn't support ``HTTPS``.
 
 
 Markdown Format
@@ -141,7 +156,7 @@ are required to write a .md file for the Qub3d project. They are:
 
 Title: It must be formatted as:
 
-..  code-block:: markdown
+..  code-block:: guess
 
     # Title
 
@@ -150,13 +165,22 @@ pound "#" before the title.
 
 Subsection: It must be formatted as:
 
-..  code-block:: markdown
+..  code-block:: guess
 
     ## Subsection About Stuff
 
 Where the subsection always comes after the Title, and all major
 words are capitalized. Subsections also must be consistent with
 two pounds "##" before the subsection title.
+
+Further sub-* sections: Just add another pound "#" to the section's
+title. An example is demonstrated below.
+
+..  code-block:: guess
+
+    ### Sub-subsection
+
+Where there's an extra pound "#" in the title. And so forth.
 
 Date: You don't need to include the date for Markdown files.
 
@@ -168,34 +192,46 @@ the list/bullet points.
 
 Links: Never insert raw links. Instead, give these links a name.
 For example, the file shouldn't display https://qub3d.org by itself.
-Instead it should be given the name, "Qub3d." This is demonstrated in
-the following:
+Instead it should be given the name, "Qub3d." The incorrect method
+is demonstrated in the following:
 
-..  code-block:: markdown
+..  code-block:: guess
 
     https://qub3d.org
 
-This is incorrect. What should've been done is:
+What should've been done is:
 
-..  code-block:: markdown
+..  code-block:: guess
 
     [Qub3d](https://qub3d.org)
 
-This displays "Qub3d" as a hyperlink to qub3d.org.
+This displays "Qub3d" as a hyperlink to https://qub3d.org.
+
+NOTE: Links **must** have :code:`https://` instead of :code:`http://`. The only
+exception is that if the URL doesn't support ``HTTPS``.
 
 
 Miscellaneous
 ==============================
 
 
+Style
+------
+
+To be consistent, the documentation must be written in American
+English. Abbreviations are all-uppercase such as HTTP instead of
+Hyper Text Transfer Protocol.
+
+
 Localization
 -------------
 
-The documentation is written with the UTF-8 localization format.
-Please use this locale if you can.
+The documentation is written with the UTF-16 localization format.
+Please use unicode for documentation if you can.
 
-For more information on RST formatting, check
-`RST <`http://www.sphinx-doc.org/en/stable/rest.html>`_.
+For more information on RST formatting, `check
+ReST <http://www.sphinx-doc.org/en/stable/rest.html>`_.
 
 NOTE: This file is *not* a tutorial on RST and Markdown, rather,
 it is a tutorial on RST and MD standards used by the Qub3d Engine Group.
+

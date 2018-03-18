@@ -14,7 +14,10 @@ Format Standards
 Localization
 -------------
 
-We use the ASCII localization standard to
-write Lua code. If you use UTF-8 otherwise,
-you're excused unless you insert a character
-that is unsupported by ASCII.
+The code must be written in ASCII.
+We use the English ASCII localization standard for
+writing Lua. Strings may be in unicode, preferably
+UTF-16, unless you insert a unicode character that
+ASCII doesn't support. For more information
+on which characters are supported by ASCII, see
+`the tables <http://www.asciitable.com/>`_. 

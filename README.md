@@ -10,8 +10,8 @@ This repository uses Sphinx. For more information on Sphinx, see
 [sphinx-doc.org](https://sphinx-doc.org).
 
 If you're on a UNIX system and have Sphinx installed, you can simply run
-`make` in the root of this repository, pick the format you want from
-make's output, and run it.
+`make`, pick the format you want from make's output, and run it. All this
+needs to be in a user-created `build` directory.
 
 ## Contributions
 
@@ -25,3 +25,4 @@ our Contributors' Guide.
 This project is licensed under the BSD-3 License. (See LICENSE.md)
 
 It is owned and maintained by [Qub3d Engine Group](https://qub3d.org)
+
