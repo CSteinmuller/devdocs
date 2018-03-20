@@ -38,16 +38,16 @@ other "words," it is pronounced as "k-you-bd." The "³" in
 "Qub³d" is pronounced "cubed" as well.
 
 **Q:** Where do I report bugs?
-**A:** We take bugs very seriously. `You can report bugs/issues at
-Ponder <`https://phab.qub3d.org/ponder>`_ after registering an
+**A:** We take bugs very seriously. You can report bugs/issues at 
+`Ponder <https://phab.qub3d.org/ponder>`_ after registering an
 account. Also, please use ISSUE_TEMPLATE.md when submitting bug
 reports.
 
 **Q:** Where can I find more information about Qub³d?
 **A:** Much of the official Qub³d documentation can be found on
-`the official wiki <`https://phab.qub3d.org/w/>`_.
+`the official wiki <https://phab.qub3d.org/w/>`_.
 
 **Q:** This FAQ has not answered my question. What do I do now?
 **A:** A very good step is to browse through the relevant documentation
 in the wiki. If this failed, browse the Mailing List. If all else
-fails, visit the Qub³d Engine Group at the Discord Server.
+fails, visit the Qub³d Engine Group at the `Discord Server <https://discord.gg/jQF3s8m>`_.
