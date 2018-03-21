@@ -20,12 +20,12 @@ Table of Contents
 ..  toctree::
     :maxdepth: 1
 
-    howto/contributing
-    howto/cpp-standards
-    howto/doc-howto
-    howto/faq
     howto/gettingstarted
+    howto/contributing
+    howto/doc-howto
+    howto/cpp-standards
     howto/lua-standards
+    howto/faq
     serverconfig/config
 
 
