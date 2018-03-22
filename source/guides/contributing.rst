@@ -10,12 +10,6 @@ Qub³d Engine Group's guidelines are.
 You want to contribute to the project? Awesome!
 Here, you will find out how to get started.
 
-Preliminary Keywords:
-
-- Landing: Synonymous with merging.
-
-- Launching: Synonymous with creating a Pull Request.
-
 
 Getting Started
 ==============================
